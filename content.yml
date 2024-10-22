@@ -1,0 +1,15 @@
+---
+- name: user creation play
+  hosts: dev
+  tasks:
+    - name: blue tag
+      ansible.builtin.copy:
+         content: "welcome to blue server"
+         dest: /var/www/html/index.html
+      tags: [never,blue]   
+    - name: green tag
+      ansible.builtin.copy:
+         content: "welcome to green server"
+         dest: /var/www/html/index.html
+      tags: [never,green]
+
